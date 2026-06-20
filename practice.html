@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>mYsHOP</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+        }
+
+       
+        header {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        header h1 {
+            font-size: 28px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: yellow;
+            transform: scale(1.1);
+        }
+
+         
+        .hero {
+            text-align: center;
+            padding: 60px;
+            color: #333;
+        }
+
+        .hero h2 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+        }
+
+        .hero button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .hero button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px #ff4b2b;
+        }
+
+      
+        .products {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 40px;
+        }
+
+        .product-card {
+            width: 230px;
+            margin: 20px;
+            padding: 15px;
+            text-align: center;
+            border-radius: 15px;
+            background: white;
+            transition: 0.4s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .product-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .product-card h3 {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .product-card p {
+            font-weight: bold;
+            color: #ff416c;
+            margin-bottom: 10px;
+        }
+
+        .product-card button {
+            padding: 8px 18px;
+            border: none;
+            border-radius: 20px;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .product-card button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px #0072ff;
+        }
+
+        
+        footer {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+
+       
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+            }
+
+            nav {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>OCTAVIUM</h1>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Products</a>
+        <a href="#">Contact</a>
+        <a href="#">Cart</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Welcome to OCTAVIUM</h2>
+    <p>Discover Amazing Deals Everyday!</p>
+    <button>Shop Now</button>
+</section>
+
+<section class="products">
+
+    <div class="product-card">
+        <img src="headphone.jpg" alt="Product">
+        <h3>Wireless Headphones</h3>
+        <p>₹1999</p>
+        <button>Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+        <img src="watch.jpg" alt="Product">
+        <h3>Smart Watch</h3>
+        <p>₹2999</p>
+        <button>Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+        <img src="mouse.jpg" alt="Product">
+        <h3>Gaming Mouse</h3>
+        <p>₹1499</p>
+        <button>Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+        <img src="keyboard.jpg" alt="Product">
+        <h3>Keyboard</h3>
+        <p>₹999</p>
+        <button>Add to Cart</button>
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2026 OCTAVIUM | Designed by Satwik(Octafrizzer)</p>
+</footer>
+
+</body>
+</html>
