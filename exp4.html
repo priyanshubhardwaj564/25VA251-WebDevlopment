@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Result Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        h2 {
+            text-align: center;
+            color: #4e54c8;
+            margin-bottom: 25px;
+        }
+        label {
+            display: block;
+            margin: 15px 0 8px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #4e54c8;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background: #3c42a6;
+        }
+        #resultBox {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            display: none;
+        }
+        .result-item {
+            margin: 10px 0;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .grade-A { color: green; font-weight: bold; }
+        .grade-F { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🎓 Student Result Calculator</h2>
+        <p style="text-align:center; color:#555;">Enter number of subjects and calculate your result</p>
+
+        <label for="numSubjects">Number of Subjects</label>
+        <input type="number" id="numSubjects" placeholder="e.g. 5" min="1" max="20">
+
+        <button onclick="calculateResult()">Calculate Result</button>
+
+        <div id="resultBox"></div>
+    </div>
+
+    <script>
+        function calculateResult() {
+            let numSubjects = parseInt(document.getElementById("numSubjects").value);
+            
+            if (isNaN(numSubjects) || numSubjects <= 0) {
+                alert("Please enter a valid number of subjects (greater than 0)");
+                return;
+            }
+
+            let totalMarks = 0;
+            let marksArray = [];
+
+            for (let i = 1; i <= numSubjects; i++) {
+                let mark = parseFloat(prompt(`Enter marks for Subject ${i} (out of 100):`));
+                
+                if (isNaN(mark) || mark < 0 || mark > 100) {
+                    alert(`Invalid marks for Subject ${i}! Please enter value between 0 and 100.`);
+                    return;
+                }
+                
+                marksArray.push(mark);
+                totalMarks += mark;
+            }
+
+            let averageMarks = (totalMarks / numSubjects).toFixed(2);
+
+            // Determine Grade
+            let grade, gradeClass;
+            if (averageMarks >= 90) {
+                grade = "A";
+                gradeClass = "grade-A";
+            } else if (averageMarks >= 75) {
+                grade = "B";
+                gradeClass = "grade-A";
+            } else if (averageMarks >= 60) {
+                grade = "C";
+                gradeClass = "";
+            } else if (averageMarks >= 40) {
+                grade = "D";
+                gradeClass = "";
+            } else {
+                grade = "F";
+                gradeClass = "grade-F";
+            }
+
+            let resultStatus = averageMarks >= 40 ? "PASS" : "FAIL";
+            let resultClass = averageMarks >= 40 ? "grade-A" : "grade-F";
+
+            // Display Result
+            let resultHTML = `
+                <h3 style="text-align:center; color:#4e54c8;">Result Summary</h3>
+                <div class="result-item"><strong>Number of Subjects:</strong> ${numSubjects}</div>
+                <div class="result-item"><strong>Total Marks:</strong> ${totalMarks}</div>
+                <div class="result-item"><strong>Average Marks:</strong> ${averageMarks} / 100</div>
+                <div class="result-item"><strong>Grade:</strong> <span class="${gradeClass}">${grade}</span></div>
+                <div class="result-item"><strong>Final Result:</strong> <span class="${resultClass}">${resultStatus}</span></div>
+            `;
+
+            document.getElementById("resultBox").innerHTML = resultHTML;
+            document.getElementById("resultBox").style.display = "block";
+        }
+    </script>
+</body>
+</html>
